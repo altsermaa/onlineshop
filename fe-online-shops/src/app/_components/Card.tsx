@@ -8,16 +8,10 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card";
+import { Product } from "./ShowCards";
+import Link from "next/link";
 
-type Card = {
-  image: string;
-  productName: string;
-  description: string;
-  price: number
-};
-
-export const ProductCard = ({ image, productName, description, price  }: Card) => {
-
+export const ProductCard = ({ image, productName, description, price, _id, categoryId}: Product) => {
 
 let MNT = new Intl.NumberFormat('mn-MN', {
     style: 'currency',
@@ -27,22 +21,23 @@ let MNT = new Intl.NumberFormat('mn-MN', {
 const convertedPrice = MNT.format(price)
 
   return (
+    <Link href={`/details/${_id}`}>
+      <Card className="h-[342px] w-full p-4 gap-5">
+        <CardDescription className="h-full w-full relative">
+          <Image src={image} fill objectFit="contain" alt="productImage" />
+        </CardDescription>
 
-    <Card className="h-[342px] w-full p-4 gap-5">
-  
-      <CardDescription className="h-full w-full relative">
-        <Image src={image} fill objectFit="contain" alt="productImage" />
-      </CardDescription>
+        <CardContent>
+          
+              <h1 className="text-sm">{productName}</h1>
+              <p className="text-gray-400 hidden lg:block">{description}</p>
+        </CardContent>
 
-      <CardContent>
-        
-            <h1 className="text-sm">{productName}</h1>
-            <p className="text-gray-400 hidden lg:block">{description}</p>
-      </CardContent>
+        <CardFooter>
+          <p className="font-black text-sm">{convertedPrice}</p>
+        </CardFooter>
+      </Card>
+    </Link>
 
-      <CardFooter>
-        <p className="font-black text-sm">{convertedPrice}</p>
-      </CardFooter>
-</Card>
   );
 };
