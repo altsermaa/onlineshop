@@ -10,22 +10,23 @@ interface ParamType {
 const DetailPage = async ({ params }: ParamType) => {
   const { id } = params;
 
-  const res = await fetch(
-    `http://localhost:8000/getSingleProduct/${id}`, {
+  const res = await fetch(`http://localhost:8000/getSingleProduct/${id}`, {
     cache: "no-store",
-  }
-  );
-
-    if (!res.ok) {
-    throw new Error("Failed to fetch product");
-  }
-
-  const resultDetails = await res.json();
-  
-  console.log(resultDetails)
+  });
+  const data = await res.json();
+  console.log(data.fetchedData);
 
   return (
-    <div><DetailPageShow /></div>
+    <div>
+      <DetailPageShow
+        productName={data.fetchedData.productName}
+        price={data.fetchedData.price}
+        image={data.fetchedData.image}
+        _id={data.fetchedData._id}
+        categoryId={data.fetchedData.categoryId}
+        description={data.fetchedData.description}
+      />
+    </div>
   );
 };
 
