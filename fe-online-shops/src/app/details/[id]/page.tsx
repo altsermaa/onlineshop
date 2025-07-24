@@ -1,5 +1,6 @@
 import axios from "axios";
 import { DetailPageShow } from "./_components/DetailPageShow";
+import { useParams } from "next/navigation";
 
 interface ParamType {
   params: {
@@ -7,7 +8,8 @@ interface ParamType {
   };
 }
 
-const DetailPage = async ({ params }: ParamType) => {
+const DetailPage = async (props: Promise<ParamType>) => {
+   const { params } = await props;
   const { id } = params;
 
   const res = await fetch(`http://localhost:8000/getSingleProduct/${id}`, {
@@ -15,6 +17,10 @@ const DetailPage = async ({ params }: ParamType) => {
   });
   const data = await res.json();
   console.log(data.fetchedData);
+
+  if (!data.fetchedData) {
+    return <div>Product not found.</div>;
+  }
 
   return (
     <div>

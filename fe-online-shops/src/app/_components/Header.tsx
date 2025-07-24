@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { ChevronDown, CircleUserRound, MenuIcon, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Order } from "./Order";
 
 export const Header = () => {
     return  <div className="w-full px-4 lg:px-10 py-3 border-b">
@@ -45,7 +46,7 @@ export const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-              <ShoppingCart />
+              <Order />
               <CircleUserRound className="hidden lg:block"/>
           </div>
         </div>
