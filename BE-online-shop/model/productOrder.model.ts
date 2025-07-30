@@ -15,8 +15,8 @@ enum ProductOrderEnum {
 }
 
 const ProductOrder = new Schema({
-  phoneNumber1: { type: Number, required: true},
-  phoneNumber2: { type: Number, required: true},
+  phoneNumber1: { type: String, required: true},
+  phoneNumber2: { type: String, required: true},
   address: { type: String, required: true },
   totalPrice: { type: Number, required: true },
   productOrderItems: { type: [ProductOrderItem], required: true },

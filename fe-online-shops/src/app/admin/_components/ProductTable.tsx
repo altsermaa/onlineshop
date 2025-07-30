@@ -2,6 +2,10 @@
 import { Product } from "@/app/_components/ShowCards";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ShowSingleProduct } from "./ShowSingleProduct";
+import { AddProduct } from "./AddProduct";
+import { AddCategory } from "./AddCategory";
+import { Button } from "@/components/ui/button";
 
 type PropsType = {
   products: Record<string, Product[]>;
@@ -29,49 +33,33 @@ export default function ProductTable() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">Products</h2>
-        <button className="bg-green-600 text-white px-4 py-2 rounded">Add Product</button>
+      <div className="flex flex-col sm:flex-row sm:justify-end sm:items-end mb-4 gap-2">
+        <div className="flex sm:flex-row gap-2 w-full sm:w-auto">
+          <AddCategory />
+          <button ><AddProduct /></button>
+        </div>
       </div>
-      <table className="w-full border text-left">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="p-2">Name</th>
-            <th className="p-2">Price</th>
-            <th className="p-2">Category</th>
-            <th className="p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            keys.map((el, index) => {
-              return (
-                <div key={index}>
-                  <h2 className="mb-14 text-3xl text-white font-black">{el}</h2>
-                  <div>
-                    {products[el].length === 0 ? (
-            <tr><td colSpan={4} className="p-4 text-center">No products yet.</td></tr>
-          ) : (
-            products[el].map((product, index) => (
-              <tr key={index} className="border-t">
-                <td className="p-2">{product.productName}</td>
-                <td className="p-2">{product.price}</td>
-                <td className="p-2">{product.categoryId}</td>
-                <td className="p-2 flex gap-2">
-                  <button className="bg-yellow-500 text-white px-2 py-1 rounded">Edit</button>
-                  <button className="bg-red-600 text-white px-2 py-1 rounded">Delete</button>
-                </td>
-              </tr>
-            ))
-          )}
-                  </div>
+      {
+        keys.map((el, index) => {
+          return (
+            <div key={index}>
+              <h2 className="my-5 text-3xl font-black">{el}</h2>
+              <div className="w-full overflow-x-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 min-w-[320px]">
+                  {products[el].length === 0 ? (
+                    <div className="col-span-full p-4 text-center">No products yet.</div>
+                  ) : (
+                    products[el].map((product, index) => (
+                      <ShowSingleProduct key={index} productName={product.productName} price={product.price} image={product.image} _id={product._id} description={product.description} categoryId={product.categoryId}/>
+                    ))
+                  )}
                 </div>
-              )
-            })
-          }
+              </div>
+            </div>
+          )
+        })
+      }
           
-        </tbody>
-      </table>
     </div>
   );
 } 

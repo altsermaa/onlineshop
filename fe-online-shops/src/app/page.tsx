@@ -8,7 +8,7 @@ const Home = async () => {
 
 
   return (
-    <div className="w-[360px] lg:w-[930px]">
+    <div className="w-[360px] lg:w-[930px] mx-auto">
       {/* <Header /> */}
       <ShowCards products={data.data.products} />
     </div>

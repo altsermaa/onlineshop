@@ -22,7 +22,7 @@ export const ShowCards = ({ products }: CategoryProductType ) => {
   console.log(products)
 
   return (
-    <div className="w-full px-4 lg:px-10 py-3">
+    <div className="w-full py-3">
       <div className="flex flex-col gap-20">
         {keys.map((el, index) => {
           return (
@@ -32,7 +32,7 @@ export const ShowCards = ({ products }: CategoryProductType ) => {
                 {products[el].slice(0, 6).map((product) => {
                   return (
                     <div key={index}>
-                    <ProductCard image={"/dress.jpeg"} productName={product.productName} description={product.description} price={product.price} _id={product._id} categoryId={product.categoryId}/>
+                    <ProductCard image={product.image} productName={product.productName} description={product.description} price={product.price} _id={product._id} categoryId={product.categoryId}/>
                     </div>
                   );
                 })}

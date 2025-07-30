@@ -68,7 +68,6 @@ export const Order = () => {
   const handleOpen = () => setIsOpen(true);
 
   const handleSubmit = async () => {
-    // Validate with zod
     const result = orderSchema.safeParse({
       address,
       phoneNumber1,
@@ -83,7 +82,7 @@ export const Order = () => {
       
         const backEndData = cart.map((product) => ({
           product: product._id,
-          addcount: product.addcount,
+          quantity: product.addcount,
         }));
 
         const totalPrice = (Array.isArray(cart) ? cart : []).reduce(
@@ -165,7 +164,7 @@ export const Order = () => {
                   );
                 })}
                 <div className="grid w-full gap-3">
-                  <Label htmlFor="address">Delivery address</Label>
+                  <Label htmlFor="address">Address</Label>
                   <Input placeholder="Please share your complete address"
                     id="address"
                     value={address}
