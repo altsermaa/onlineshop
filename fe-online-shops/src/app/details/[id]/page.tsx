@@ -1,11 +1,21 @@
 import axios from "axios";
 import { DetailPageShow } from "./_components/DetailPageShow";
 import { useParams } from "next/navigation";
+import { FC } from "react";
 
 interface ParamType {
   params: {
     id: string;
   };
+}
+
+interface Product {
+  productName: string;
+  price: number;
+  image: string;
+  _id: string;
+  categoryId: string;
+  description: string;
 }
 
 const DetailPage = async ({params}: ParamType) => {
@@ -15,7 +25,7 @@ const DetailPage = async ({params}: ParamType) => {
   const res = await fetch(`http://localhost:8000/getSingleProduct/${id}`, {
     cache: "no-store",
   });
-  const data = await res.json();
+  const data: {fetchedData: Product } = await res.json();
   console.log(data.fetchedData);
 
   if (!data.fetchedData) {
