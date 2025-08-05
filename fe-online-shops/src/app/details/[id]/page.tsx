@@ -4,9 +4,9 @@ import { useParams } from "next/navigation";
 import { FC } from "react";
 
 interface ParamType {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 interface Product {
@@ -19,8 +19,7 @@ interface Product {
 }
 
 const DetailPage = async ({params}: ParamType) => {
-  //  const { params } = await props;
-  const { id } = params;
+  const { id } = await params;
 
   const res = await fetch(`http://localhost:8000/getSingleProduct/${id}`, {
     cache: "no-store",
