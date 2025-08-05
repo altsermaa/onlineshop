@@ -3,12 +3,6 @@ import { DetailPageShow } from "./_components/DetailPageShow";
 import { useParams } from "next/navigation";
 import { FC } from "react";
 
-interface ParamType {
-  params: Promise<{
-    id: string;
-  }>;
-}
-
 interface Product {
   productName: string;
   price: number;
@@ -18,7 +12,7 @@ interface Product {
   description: string;
 }
 
-const DetailPage = async ({params}: ParamType) => {
+const DetailPage = async ({params}: {params: Promise<{id: string}>}) => {
   const { id } = await params;
 
   const res = await fetch(`http://localhost:8000/getSingleProduct/${id}`, {
