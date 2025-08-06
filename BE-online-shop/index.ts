@@ -23,6 +23,9 @@ databaseConnect();
 app.use(ProductsRouter);
 app.use(OrderRouter);
 
-app.listen(8000, () => {
-    console.log("running on https://localhost:8000");
-  });
+
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
