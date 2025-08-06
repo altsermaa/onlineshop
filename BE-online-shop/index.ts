@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { ProductsRouter } from "./router/product-router";
 import { OrderRouter } from "./router/order-router";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -11,7 +13,7 @@ app.use(cors());
 const databaseConnect = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://altsermaa:5EFHkAOwz1Rt3jNQ@onlineshop.q6s0pbf.mongodb.net/onlineshop"
+      process.env.MONGO_URL || ""
     );
   } catch (error) {
     console.log(error);
