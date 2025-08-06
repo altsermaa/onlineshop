@@ -2,8 +2,9 @@ import { Header } from "./_components/Header";
 import { ShowCards } from "./_components/ShowCards";
 
 const Home = async () => {
-  const response = await fetch("http://localhost:8000/getAllProducts", {
+  const response = await fetch("https://onlineshop-sqmq.onrender.com/getAllProducts", {
     cache: "no-store"
+
   });
   const data = await response.json();
   console.log(data);

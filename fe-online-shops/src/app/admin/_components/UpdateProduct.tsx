@@ -48,7 +48,7 @@ const [imageUrl, setImageUrl] = useState<string | null>(null);
   useEffect(() => {
     const getProductInfo = async () => {
       const response = await axios.get(
-        `http://localhost:8000/getSingleProduct/${id}`
+        `https://onlineshop-sqmq.onrender.com/getSingleProduct/${id}`
       );
      
       setSingleProduct(response.data.fetchedData);
@@ -79,7 +79,7 @@ const [imageUrl, setImageUrl] = useState<string | null>(null);
         imageToUse = img.secure_url;
       }
       await axios.put(
-        "http://localhost:8000/updateSingleProduct",
+        "https://onlineshop-sqmq.onrender.com/updateSingleProduct",
         {
           _id: id,
           productName: productName,
@@ -99,7 +99,7 @@ const [imageUrl, setImageUrl] = useState<string | null>(null);
     if (!isConfirmed) return;
     
     try{
-      await axios.delete("http://localhost:8000/admin/deleteProduct", 
+      await axios.delete("https://onlineshop-sqmq.onrender.com/admin/deleteProduct", 
         {
           data: {_id:id}
         }, 

@@ -92,7 +92,7 @@ export const Order = () => {
 
         try {
           const response = await axios.post(
-            "http://localhost:8000/createOrder",
+            "https://onlineshop-sqmq.onrender.com/createOrder",
             {
               productOrderItems: backEndData,
               totalPrice,
