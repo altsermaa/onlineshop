@@ -171,13 +171,13 @@ export const Order = () => {
                     onChange={handleAddress}/>
 
                   <Label htmlFor="phoneNumber1">Холбоо барих утас</Label>
-                  <Input placeholder="Please enter your contact number"
+                  <Input placeholder="Contact number"
                     id="phoneNumber1"
                     value={phoneNumber1}
                     onChange={handlePhoneNumber1}/>
 
                   <Label htmlFor="phoneNumber2">Өөр холбоо барих утас</Label>
-                  <Input placeholder="Please enter your another contact number"
+                  <Input placeholder="Another contact number"
                     id="phoneNumber2"
                     value={phoneNumber2}
                     onChange={handlePhoneNumber2}/>
@@ -202,7 +202,7 @@ export const Order = () => {
                 </div>
                 <div className="flex justify-between mt-2">
                   <p>Shipping</p>
-                  <p>{1000}₮</p>
+                  <p>{3000}₮</p>
                 </div>
                 <div className="border-b-gray-500 border-dashed my-5"></div>
                 <div className="flex justify-between">

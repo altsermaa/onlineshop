@@ -79,8 +79,8 @@ const storageKey = "productCart";
 
   return (
     <div>
-      <div className="flex w-[439px] h-[120px] gap-2 ">
-        <div className="h-full w-[124px] relative">
+      <div className="flex w-[400px] h-[120px] gap-2 ">
+        <div className="h-full w-[124px] relative shrink-0">
           <Image
             src={image}
             fill
@@ -89,18 +89,18 @@ const storageKey = "productCart";
             className="rounded-2xl"
           />
         </div>
-        <div className="flex flex-col gap-6">
-          <div className="flex h-full ">
-            <div className="flex flex-col gap-4">
-              <h3 className="text-[#FD543F] text-base">{productName}</h3>
-              <p className="text-xs">
-                {description}
-              </p>
-            </div>
-            <div onClick={deleteProduct}>
-              <CircleX className="text-[#FD543F]" />
-            </div>
-          </div>
+        <div className="flex flex-col justify-between flex-1 overflow-hidden">
+    <div className="flex justify-between w-full">
+      <div className="flex flex-col gap-1 w-[70%] overflow-hidden">
+        <h3 className="text-[#FD543F] text-base line-clamp-2 break-words">{productName}</h3>
+        <p className="text-xs line-clamp-2 break-words overflow-hidden">
+          {description}
+        </p>
+      </div>
+      <div onClick={deleteProduct}>
+        <CircleX className="text-[#FD543F] shrink-0 cursor-pointer" />
+      </div>
+    </div>
 
           <div className="flex flex-row-reverse justify-between">
             <p className="text-base">{price * qty}</p>
