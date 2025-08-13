@@ -109,6 +109,8 @@ export const Order = () => {
         }
       }
 
+      const itemsSum = (Array.isArray(cart) ? cart : []).reduce((total, product) => total + product.price * product.addcount,0)
+      const shipping = 3000
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -195,22 +197,16 @@ export const Order = () => {
               <CardContent className="my-5 w-full max-w-[439px]">
                 <div className="flex justify-between">
                   <p>Items</p>
-                  {(Array.isArray(cart) ? cart : []).reduce(
-                    (total, product) => total + product.price * product.addcount,
-                    0
-                  )}
+                  {itemsSum}₮
                 </div>
                 <div className="flex justify-between mt-2">
                   <p>Shipping</p>
-                  <p>{3000}₮</p>
+                  <p>{shipping}₮</p>
                 </div>
                 <div className="border-b-gray-500 border-dashed my-5"></div>
                 <div className="flex justify-between">
                   <p>Total</p>
-                  {(Array.isArray(cart) ? cart : []).reduce(
-                    (total, product) => total + product.price * product.addcount,
-                    0
-                  )}
+                  {itemsSum+shipping}₮
                 </div>
               </CardContent>
               <CardFooter className="w-full">

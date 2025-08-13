@@ -103,7 +103,7 @@ const storageKey = "productCart";
     </div>
 
           <div className="flex flex-row-reverse justify-between">
-            <p className="text-base">{price * qty}</p>
+            <p className="text-base">{price * qty}₮</p>
             <div className="flex h-full gap-2 text-lg">
               <button type="button" onClick={minusQty}>
                 <CircleMinus className="border-none" />

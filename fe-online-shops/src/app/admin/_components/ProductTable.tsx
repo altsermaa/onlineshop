@@ -36,7 +36,7 @@ export default function ProductTable() {
       <div className="flex flex-col sm:flex-row sm:justify-end sm:items-end mb-4 gap-2">
         <div className="flex sm:flex-row gap-2 w-full sm:w-auto">
           <AddCategory />
-          <button ><AddProduct /></button>
+          <AddProduct />
         </div>
       </div>
       {

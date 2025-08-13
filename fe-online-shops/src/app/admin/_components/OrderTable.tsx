@@ -99,7 +99,7 @@ const saveChange = async () => {
             <tr><td colSpan={9} className="p-4 text-center">No orders yet.</td></tr>
           ) : (
             paginatedOrders.map((order, orderIdx) =>
-              Array.isArray(order.productOrderItems)
+              Array.isArray(order?.productOrderItems)
                 ? order.productOrderItems.map((item: any, itemIdx: number) => (
                     <tr key={`${order._id}-${itemIdx}`} className="border-t">
                       <td className="p-2">
@@ -110,7 +110,7 @@ const saveChange = async () => {
                         />
                       </td>
                       <td className="p-2">{orderIdx + 1}</td>
-                      <td className="p-2">{item.product.productName}</td>
+                      <td className="p-2">{item.product?.productName}</td>
                       <td className="p-2">{item.quantity}</td>
                       <td className="p-2">{order.totalPrice}</td>
                       <td className="p-2">{order.address}</td>

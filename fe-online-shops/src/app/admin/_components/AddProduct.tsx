@@ -96,9 +96,9 @@ export const AddProduct = () => {
     <Dialog>
       <form >
         <DialogTrigger asChild>
-          <Button variant="link" className="text-black">
+         
             Add product
-          </Button>
+          
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
           <DialogHeader>
