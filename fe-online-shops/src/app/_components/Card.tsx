@@ -30,7 +30,7 @@ const convertedPrice = MNT.format(price)
         <CardContent>
           
               <h1 className="text-sm">{productName}</h1>
-              <p className="text-gray-400 hidden lg:block">{description}</p>
+              <p className="text-gray-400 text-sm hidden lg:block">{description}</p>
         </CardContent>
 
         <CardFooter>
